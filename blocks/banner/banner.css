@@ -1,24 +1,61 @@
+/* Container Setup */
 .banner {
-    position: relative;
-    width: 100%;
-    height: 400px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+}
+
+/* Background Image styling (using the class from JS) */
+.banner .banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.banner .banner-image picture,
+.banner .banner-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text Content Overlay (using the class from JS) */
+.banner .banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--background-color, #ffffff); /* Fallback to white if token isn't set */
+}
+
+/* Button Styling */
+.banner .banner-content .button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--link-color, #000000);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.banner .banner-content .button.secondary {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (min-width: 900px) {
+  .banner {
+    min-height: 550px;
   }
-  
-  .banner > picture > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  .banner > div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
+}
